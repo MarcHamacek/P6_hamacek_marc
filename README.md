@@ -4,6 +4,14 @@ Le projet a été généré avec [Angular CLI](https://github.com/angular/angula
 
 Pour faire fonctionner le projet, vous devez installer node-sass à part.
 
-## Development server
+## PARTIE BACKEND DU PROJET
 
-Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous sur `http://localhost:4200/`. L'application va se recharger automatiquement si vous modifiez un fichier source.
+1/ Installer express `npm install express --save`
+
+2/ Démarrer  `node server`
+
+## PARTIE FRONTEND DU PROJET
+
+1/ Installer le projet `npm install`
+
+2/ Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous sur `http://localhost:4200/`
