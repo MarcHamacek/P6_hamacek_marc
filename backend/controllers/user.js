@@ -3,9 +3,24 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const MaskData = require('maskdata');
+const PasswordValidator = require('password-validator');
+
+const passwordSchema = new PasswordValidator();
+passwordSchema
+    .is().min(8)
+    .is().max(30)
+    .has().uppercase()
+    .has().lowercase()
+    .has().digits()
+    .has().symbols()
+    .has().not().spaces();
+
 
 // Création de signup (enregistrement de compte utilisateur)
 exports.signup = (req, res, next) => {
+  if (!passwordSchema.validate(req.body.password)) {
+    return res.status(400).json({message: 'Le mot de passe doit contenir une majuscule, une minuscule, un symbole et un chiffre. Sa longueur doit être entre 8 et 30 caractères'});
+  }
   const maskedMail = MaskData.maskEmail2(req.body.email);
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
