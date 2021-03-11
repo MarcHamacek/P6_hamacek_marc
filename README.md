@@ -6,9 +6,11 @@ Pour faire fonctionner le projet, vous devez installer node-sass à part.
 
 ## PARTIE BACKEND DU PROJET
 
-1/ Installer express `npm install express`
+1/ Ajouter un dossier `images` dans le dossier Backend
 
-2/ Démarrer  `node server`
+2/ Installer express `npm install express`
+
+3/ Démarrer  `node server`
 
 ## PARTIE FRONTEND DU PROJET
 
