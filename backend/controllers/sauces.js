@@ -9,8 +9,11 @@ const {
 exports.createSauces = (req, res, next) => {
     const saucesObject = JSON.parse(req.body.sauce);
     delete saucesObject._id;
+    console.log(req.body.sauce);
     const sauces = new Sauces({
         ...saucesObject,
+        likes: 0,
+        dislikes: 0,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
     sauces.save()
