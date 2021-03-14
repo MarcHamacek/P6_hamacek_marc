@@ -27,7 +27,7 @@ mongoose.connect(process.env.DB_URL,
 
 //Ajout de la limite de tentative de connexion
 
-const limiter = rateLimit({
+const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 50 // Limite de 50 connexions par addresse IP
 });
@@ -42,7 +42,7 @@ const saucesRoutes = require('./routes/sauces');
 // Enregistrement des routeurs, activation d'helmet et de bodyparser
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(limiter);
+app.use("/api/auth", authLimiter);
 app.use(xss());
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
