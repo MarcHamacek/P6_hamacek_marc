@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const MaskData = require('maskdata');
 const PasswordValidator = require('password-validator');
+const emailEncoder = require('email-encoder');
 
 const passwordSchema = new PasswordValidator();
 passwordSchema
@@ -21,11 +22,10 @@ exports.signup = (req, res, next) => {
   if (!passwordSchema.validate(req.body.password)) {
     return res.status(400).json({message: 'Le mot de passe doit contenir une majuscule, une minuscule, un symbole et un chiffre. Sa longueur doit être entre 8 et 30 caractères'});
   }
-  const maskedMail = MaskData.maskEmail2(req.body.email);
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
       const user = new User({
-        email: maskedMail,
+        email: emailEncoder(req.body.email),
         password: hash,
       });
       user.save()
@@ -43,9 +43,8 @@ exports.signup = (req, res, next) => {
 
 // Création de login (connexion du compte utilisateur)
 exports.login = (req, res, next) => {
-  const maskedMail = MaskData.maskEmail2(req.body.email);
   User.findOne({
-      email: maskedMail
+      email: emailEncoder(req.body.email)
     })
     .then(user => {
       if (!user) {
