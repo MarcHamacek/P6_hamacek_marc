@@ -6,9 +6,9 @@ Pour faire fonctionner le projet, vous devez installer node-sass à part.
 
 ## PARTIE BACKEND DU PROJET
 
-1/ Ajouter un dossier `images` dans le dossier Backend
+1/ Dans le dossier Backend, ajouter un dossier `images`.
 
-2/ Dans le fichier `.env` ci-joint, copier le lien de la base de données et le coller dans le fichier `backend/app.js` ligne 22 à la place de `process.env.DB_URL`
+2/ Dans le dossier Backend, créer un fichier `.env` et y coller le lien présent dans le fichier `lienDB.txt`
 
 3/ Installer le projet `npm install`
 

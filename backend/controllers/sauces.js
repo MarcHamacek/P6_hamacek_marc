@@ -35,6 +35,7 @@ exports.modifySauces = (req, res, next) => {
     };
     Sauces.updateOne({
             _id: req.params.id
+            //Fonction Suppression Sauce
         }, {
             ...saucesObject,
             _id: req.params.id
