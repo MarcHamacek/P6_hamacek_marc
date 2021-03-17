@@ -16,6 +16,11 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/api/sauces
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDRlOTI1NWUwZmVmYTA1ZDg4ZjlkNmEiLCJpYXQiOjE2MTU3NjIwMjYsImV4cCI6MTYxNTg0ODQyNn0.48pu-Bcb8rGzk8M-SM4OtR1aUb73PZayYqev27MyuA4
+
+###
+DELETE http://localhost:3000/api/sauces/:id
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDRlOTI1NWUwZmVmYTA1ZDg4ZjlkNmEiLCJpYXQiOjE2MTU3NjIwMjYsImV4cCI6MTYxNTg0ODQyNn0.48pu-Bcb8rGzk8M-SM4OtR1aUb73PZayYqev27MyuA4
+
 ###
 PUT http://localhost:3000/api/sauces/604e910c2f1f7b283c850186
 Content-Type: application/json
